@@ -1,0 +1,11 @@
+sample.fasta
+sample.h5
+sample.pickle
+train_partition.fasta
+train_partition.h5
+train_partition.pickle
+val_partition.fasta
+val_partition.h5
+val_partition.pickle
+test
+pickle

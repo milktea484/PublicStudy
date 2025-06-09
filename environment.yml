@@ -1,0 +1,15 @@
+name: rna-llm-folding
+channels:
+  - pytorch
+  - nvidia
+dependencies:
+  - h5py
+  - tqdm
+  - pandas
+  - matplotlib
+  - pytorch=2.3.0
+  - pytorch-cuda=12.1
+  - scikit-learn=1.4.2
+  - torchaudio=2.3.0
+  - torchvision=0.18.0
+  - wandb
