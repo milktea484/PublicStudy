@@ -1,32 +1,16 @@
 # 卒業研究にて作成した深層学習モデルとその評価モデルのソースコード
-個人の研究でのメモ程度に使用していたため，閲覧に適した内容となっていないことをご了承ください．
 
-# RNA pretraining and Secondary Structure Prediction
+## ディレクトリの説明
+- pretraining  
+    RNAの配列特徴表現を学習する，自己教師あり学習モデルを実装したディレクトリ
 
-現段階での実行の仕方のメモ
+- SSpredictor  
+    pretrainingから得られるRNA特徴表現を評価するのに使用する，RNA二次構造予測モデルを実装したディレクトリ
 
-## 表現学習を行う手順
+- data  
+    pretrainingやSSpredcitorの学習で使用されるRNAデータや，モデル実行時の結果などが保存されるディレクトリ
 
-以下，カレントディレクトリは`myrepo/pretraining/.`
+Dockerを用いた環境構築を行なっていたため，Dockerfileとenvironment.ymlもある．
 
-表現学習モデルをトレーニングする場合：
-```bash
-python train_model.py --framework MLM --train_partition_path ../data/pretrain_data/train_partition.pickle --val_partition_path ../data/pretrain_data/val_partition.pickle --seed 1
-```
-
-表現学習モデルを用いて埋め込み表現を得る場合：
-```bash
-python pretrain.py --framework MLM --test_partition_path ../data/SS_data/ArchiveII.csv --weight_path ../data/pretrain_results/MLM/{ディレクトリ指定}/weight.pth --seed 1
-```
-
-その他やりたいこと
-- トレーニングデータを分割せずに一つのファイルで入力する場合も対応したい
-
-
-## 二次構造予測を行う手順
-
-以下，カレントディレクトリは`myrepo/SSpredictor/.`
-
-```bash
-python scripts/run_archiveII_kfold.py --emb myrepr_ArchiveII
-```
+## 作成したRNA表現学習フレームワーク
+<img src="figs/framework.png" width="720">
